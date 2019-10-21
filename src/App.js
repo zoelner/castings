@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
 
-// import { Container } from './styles';
+import Main from './pages/Main';
+import GlobalStyle from './styles/global';
 
 export default function App() {
-  return <div />;
+  return (
+    <>
+      <Main />
+      <GlobalStyle />
+    </>
+  );
 }
