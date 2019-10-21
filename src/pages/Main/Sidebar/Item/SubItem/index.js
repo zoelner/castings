@@ -2,25 +2,15 @@ import React from 'react';
 
 import { Container } from './styles';
 
-export default function SubItem() {
+export default function SubItem({ data }) {
   return (
     <Container>
-      <li className="active">
-        <strong>Katerina</strong>
-        <span>Main Role</span>
-      </li>
-      <li>
-        <strong>Katerina</strong>
-        <span>Main Role</span>
-      </li>
-      <li>
-        <strong>Katerina</strong>
-        <span>Main Role</span>
-      </li>
-      <li className="disabled">
-        <strong>Katerina</strong>
-        <span>Main Role</span>
-      </li>
+      {data.map(item => (
+        <li className={item.active ? 'active' : 'disabled'}>
+          <strong>{item.name}</strong>
+          <span>{item.role}</span>
+        </li>
+      ))}
     </Container>
   );
 }
