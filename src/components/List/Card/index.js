@@ -11,7 +11,11 @@ export default function Card({ data }) {
       <div className="right">
         <h1>{data.title}</h1>
         <h2>{data.subtitle}</h2>
-        <Progress min={0} max={10} value={3} />
+        <Progress
+          min={0}
+          max={data.progress.max}
+          value={data.progress.current}
+        />
       </div>
     </Container>
   );

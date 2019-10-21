@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Container from '../../components/Container';
 import Header from '../../components/Header';
@@ -6,8 +6,21 @@ import List from '../../components/List';
 import Sidebar from './Sidebar';
 
 import { Wrapper, Section, ContentHeader, Content } from './styles';
+import api from '../../services/api';
 
 export default function Main() {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    async function load() {
+      const response = await api.get('/projects/1');
+
+      setData(response.data);
+    }
+
+    load();
+  }, []);
+
   return (
     <Container>
       <Header />
@@ -15,76 +28,13 @@ export default function Main() {
         <Sidebar />
         <Section>
           <ContentHeader>
-            <h1>Katerina</h1>
-            <h2>Main Role</h2>
+            <h1>{data.name}</h1>
+            <h2>{data.role}</h2>
           </ContentHeader>
 
           <Content>
-            <List
-              data={{
-                done: true,
-                title: 'Shortlist',
-                creatable: true,
-                cards: [
-                  {
-                    title: 'Lorem ipsum dor sit amed',
-                    subtitle: 'Lorem ipsum dor sit amed',
-                    user: 'https://api.adorable.io/avatars/40',
-                  },
-                  {
-                    title: 'Lorem ipsum dor sit amed',
-                    subtitle: 'Lorem ipsum dor sit amed',
-                    user: 'https://api.adorable.io/avatars/40',
-                  },
-                ],
-              }}
-            />
-            <List
-              data={{
-                done: true,
-                title: 'Round',
-                creatable: true,
-                cards: [],
-              }}
-            />
-            <List
-              data={{
-                done: true,
-                title: 'Final Round',
-                creatable: true,
-                cards: [
-                  {
-                    title: 'Lorem ipsum dor sit amed',
-                    subtitle: 'Lorem ipsum dor sit amed',
-                    user: 'https://api.adorable.io/avatars/40',
-                  },
-                  {
-                    title: 'Lorem ipsum dor sit amed',
-                    subtitle: 'Lorem ipsum dor sit amed',
-                    user: 'https://api.adorable.io/avatars/40',
-                  },
-                ],
-              }}
-            />
-            <List
-              data={{
-                done: true,
-                title: 'Except',
-                creatable: true,
-                cards: [
-                  {
-                    title: 'Lorem ipsum dor sit amed',
-                    subtitle: 'Lorem ipsum dor sit amed',
-                    user: 'https://api.adorable.io/avatars/40',
-                  },
-                  {
-                    title: 'Lorem ipsum dor sit amed',
-                    subtitle: 'Lorem ipsum dor sit amed',
-                    user: 'https://api.adorable.io/avatars/40',
-                  },
-                ],
-              }}
-            />
+            {data.boards &&
+              data.boards.map(board => <List key={board.id} data={board} />)}
           </Content>
         </Section>
       </Wrapper>

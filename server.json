@@ -1,0 +1,68 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Castings",
+      "role": "Front-End",
+      "boards": [
+        {
+          "id": "board-1",
+          "title": "Shortlist",
+          "cards": [
+            {
+              "id": "card-1",
+              "title": "Lorem ipsum dor sit amed",
+              "subtitle": "Lorem ipsum dor sit amed",
+              "user": "https://api.adorable.io/avatars/40/card-1.jpg",
+              "progress": {
+                "current": 3,
+                "max": 12
+              }
+            },
+            {
+              "id": "card-2",
+              "title": "Lorem ipsum dor sit amed",
+              "subtitle": "Lorem ipsum dor sit amed",
+              "user": "https://api.adorable.io/avatars/40/card-2.jpg",
+              "progress": {
+                "current": 7,
+                "max": 10
+              }
+            }
+          ]
+        },
+        {
+          "id": "board-2",
+          "title": "Round",
+          "cards": []
+        },
+        {
+          "id": "board-3",
+          "title": "Final Round",
+          "cards": [
+            {
+              "id": "card-3",
+              "title": "Lorem ipsum dor sit amed",
+              "subtitle": "Lorem ipsum dor sit amed",
+              "user": "https://api.adorable.io/avatars/40/card-3.jpg",
+              "progress": {
+                "current": 8,
+                "max": 10
+              }
+            },
+            {
+              "id": "card-4",
+              "title": "Lorem ipsum dor sit amed",
+              "subtitle": "Lorem ipsum dor sit amed",
+              "user": "https://api.adorable.io/avatars/40/card-4.jpg",
+              "progress": {
+                "current": 1,
+                "max": 10
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
